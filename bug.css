@@ -1,0 +1,24 @@
+The CSS `calc()` function can produce unexpected results if you're not careful with operator precedence and unit handling.  For example, consider this snippet:
+```css
+.element {
+  width: calc(100% - 20px);
+}
+```
+This is generally fine. But if you add another `calc()` expression within that, you might encounter issues.  For instance:
+```css
+.element {
+  width: calc(calc(50% - 10px) + 50px);
+}
+```
+This *might* work as expected in many browsers, but it's not guaranteed due to how `calc()` parses nested expressions.  It's better to simplify:
+```css
+.element {
+  width: calc(50% + 40px);
+}
+Another common error is forgetting units.
+```css
+.element {
+  width: calc(100% - 20); /* Missing 'px' or other unit */
+}
+```
+This will often result in unexpected width, or errors entirely.
