@@ -1,0 +1,15 @@
+/* bugSolution.css */
+
+.element {
+  width: calc(50% + 40px); /* Simplified nested calc() */
+}
+
+.another-element {
+  width: calc(100% - 20px); /* Added missing 'px' unit */
+}
+
+/*  Avoid complex nested calc() like this:
+.avoid-this {
+  width: calc(calc(50% - 10px) + 50px); 
+}
+*/
